@@ -9,14 +9,17 @@ class List():
     def __init__(self):
         self.head = ListElement(None, None)
         self.head.next = self.head
+
     def prepend(self, new_element):
         list_element = ListElement(new_element, self.head.next)
         self.head.next = list_element
+
     def items(self):
         current = self.head.next
         while current != self.head:
             yield current.element
             current = current.next
+
     def size(self):
         suma = 0
         current = self.head.next
@@ -24,6 +27,7 @@ class List():
             suma += 1
             current = current.next
         return suma 
+
     def search(self, item):
         current = self.head.next
         while current != self.head:
@@ -32,6 +36,7 @@ class List():
             else:
                 current = current.next
         return None
+
     def remove(self, item):
         previous = self.head
         current = self.head.next
@@ -43,12 +48,14 @@ class List():
                 current = current.next
                 previous = previous.next
         return False 
+
     def append(self, item):
         current = self.head.next
         while current.next != self.head:
             current = current.next
         list_element = ListElement(item, self.head)
         current.next = list_element
+
     def insert(self, item, index):
         if self.size() <= index:
             return False 
@@ -60,6 +67,7 @@ class List():
         list_element = ListElement(item, current.next)
         current.next = list_element
         return True
+
     def remove_at_given(self, index):
         if self.size() <= index:
             return False
@@ -72,6 +80,7 @@ class List():
             previous = previous.next
         previous.next = current.next
         return True 
+
     def pop(self):
         current = self.head.next
         previous = self.head
@@ -113,6 +122,7 @@ class Node():
 class LinkedList():
     def __init__(self):
         self.head = None
+        
     def is_empty(self):
         return self.head == None 
 
