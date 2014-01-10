@@ -5,19 +5,24 @@ class Node():
         self.data = data
         self.next = next
 
+    def print_list_in_reverse2(self):
+        if self.next != None:
+            self.next.print_list_in_reverse2()
+        print self.data
+
+
+
 class Linked_list():
     def __init__(self):
         self.head = None
 
     def print_list_in_reverse(self):
-        d = {}
+        l = []
         current = self.head
-        current_index = 0
-        list_of_indexes = []
         while current != None:
-            d[current_index] = current
-            list_of_indexes.append(current_index)
+            l.append(current)
             current = current.next
-            current_index += 1
-        for i in list_of_indexes:
-            print d[len(list_of_indexes) - i - 1]
+        for i in range(len(l)):
+            print l[len(l) - 1 - i]
+
+
